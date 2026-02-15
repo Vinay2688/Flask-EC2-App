@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .card {
+            width: 600px;
+            padding: 40px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin-bottom: 10px;
+        }
+
+        .upload-section {
+            margin-top: 25px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: none;
+            background: #11998e;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0f8177;
+        }
+
+        .file-info {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 8px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #11998e;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Hello, {{ user[3] }} 👋</h2>
+
+        <div class="info"><strong>Username:</strong> {{ user[1] }}</div>
+        <div class="info"><strong>Email:</strong> {{ user[5] }}</div>
+        <div class="info"><strong>Address:</strong> {{ user[6] }}</div>
+
+        <div class="upload-section">
+            <h3>Upload a Text File</h3>
+            <form action="/upload/{{ user[1] }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <br>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+
+        {% if word_count %}
+        <div class="file-info">
+            <strong>File:</strong> {{ filename }} <br>
+            <strong>Word Count:</strong> {{ word_count }}
+            <br>
+            <a href="/download/{{ filename }}">Download File</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

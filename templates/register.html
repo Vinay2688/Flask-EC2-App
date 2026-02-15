@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .card {
+            width: 420px;
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 14px;
+        }
+
+        input::placeholder {
+            color: #eee;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            background: white;
+            color: #764ba2;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #f1f1f1;
+            transform: translateY(-2px);
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .link a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Create Account</h2>
+        <form action="/register" method="POST">
+            <div class="input-group"><input type="text" name="username" placeholder="Username" required></div>
+            <div class="input-group"><input type="password" name="password" placeholder="Password" required></div>
+            <div class="input-group"><input type="text" name="firstname" placeholder="First Name" required></div>
+            <div class="input-group"><input type="text" name="lastname" placeholder="Last Name" required></div>
+            <div class="input-group"><input type="email" name="email" placeholder="Email" required></div>
+            <div class="input-group"><input type="text" name="address" placeholder="Address" required></div>
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="link">
+            <a href="/login">Already have an account? Login</a>
+        </div>
+    </div>
+</body>
+</html>
